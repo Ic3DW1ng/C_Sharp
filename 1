@@ -1,0 +1,28 @@
+using UnityEngine;
+
+
+
+public class PlayerControl: MonoBehaviour
+
+
+
+{
+
+
+
+public float speed = 5.0f;
+
+
+void Update()
+
+
+
+float v Input.GetAxis("Vertical");
+
+transform. Translate(new Vector3(-1, 0, 0) * speed * Time.deltaTime * v);
+
+
+
+floath Input.GetAxis("Horizontal");
+
+transform. Translate (new Vector3(0, 0, 1) speed * Time.deltaTime * h);
