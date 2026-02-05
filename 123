@@ -1,0 +1,25 @@
+using UnityEngine;
+
+public class PlayerControl : MonoBehaviour
+{
+    public float speed = 5.0f;
+    private Rigidbody rb;
+
+    void Start()
+    {
+        // Получаем ссылку на компонент физики
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate() // Для физики лучше использовать FixedUpdate
+    {
+        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxis("Horizontal");
+
+        // Создаем вектор движения
+        Vector3 move = new Vector3(-v, 0, h) * speed;
+
+        // Двигаем через Rigidbody, чтобы физика учитывала стены и пол
+        rb.MovePosition(rb.position + move * Time.fixedDeltaTime);
+    }
+}
